@@ -32,6 +32,7 @@ public class RegistrationController
             MyUser myUser = new MyUser();
         myUser.setUsername(rDto.getEmail());
         myUser.setPassword(passwordEncoder.encode(rDto.getPassword()));
+        //edit this to "ADMIN" to create an admin user account
         myUser.setRole("USER");
         System.out.println("registered");
         return repository.save(myUser);
