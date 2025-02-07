@@ -1,7 +1,7 @@
 # CCSE
 CCSE Coursework 1
 
-In order to run the System MySQL must be installed on the host machine and running a server. Either the MySQL server username and password must be root or change 
+In order to run the System MySQL must be installed on the host machine and running a server on port 3306. Either the MySQL server username and password must be root or change 
 the spring datasource username and password in /src/main/resources/application.properties
 
 upon initialisation there will be no data in the database.
