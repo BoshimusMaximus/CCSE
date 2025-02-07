@@ -1,0 +1,72 @@
+
+
+h1 {
+    color: black;
+    text-align: center;
+}
+/* Create a top navigation bar with a black background color */
+
+.topnav {
+    background-color: #000000;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Create a right-aligned (split) link inside the navigation bar */
+  .topnav a.split {
+    float: right;
+    background-color: #007bb4;
+    color: white;
+  }
+/* Style for the product container */
+  .product-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
+}
+
+/* Style for the product details section */
+.product-details {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #007bb4;
+    border-radius: 5px;
+    margin-right: 20px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Style for the product image */
+.product-image{
+    width: 300px;
+    height: auto;
+    border: #007bb4;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+/* Style for the product description section */
+.product-description {
+    width: 620px;
+    margin-top: 20px;
+    padding: 20px;
+    border: 5px solid #007bb4;
+    border-radius: 5px;
+    margin: 0 auto;
+}

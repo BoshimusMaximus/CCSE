@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/springsecurity5">
+<head>
+    <title>Home</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+    <!-- Navigation bar at the top of the page 
+     with links to different pages-->
+    <div class="topnav">
+        <a class="active" href="/home">Home</a>
+        <a href="/aGuitars">Acoustic Guitars</a>
+        <a href="/eGuitars">Electric Guitars</a>
+        <a href="/basket" class="split">Basket</a>
+        <a href="/login" class="split">login</a>
+        <a href="/register" class="split">register</a>
+        <a href="/logout" class="split">logout</a>
+    </div>
+    <!-- Container for the main content of the page -->
+    <div class="link-container">
+        <div class="header">
+            <h1>Welcome to Groovy Guitars!</h1>
+            <p>View our amazing selections of instruments!!</p>
+        </div>
+        <!-- Section for displaying guitar categories and links to pages-->
+        <div class="guitar-sections">
+            <div class="acoustic">
+                <h2>Acoustic Guitars</h2>
+                <a href="/aGuitars"><img src="/images/mapleAcoustic.png" alt="Acoustic Guitar"></a>
+            </div>
+            <div class="electric">
+                <h2>Electric Guitars</h2>
+                <a href="/eGuitars"><img src="/images/blackGuitar.png" alt="Electric Guitar"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
