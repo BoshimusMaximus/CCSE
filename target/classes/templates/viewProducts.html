@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Products</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewProducts.css">
+</head>
+<body>
+    <!-- Navigation bar at the top of the page 
+     with links to different pages-->
+    <div class="topnav">
+        <a href="/admin">Admin Home</a>
+        <a href="/admin/products">Products</a>
+        <a href="/admin/users" >Users</a>
+        <a href="/home">User Home</a>
+        <a href="/logout" class="split">Logout</a>
+      </div>
+
+    <h1>Products</h1>
+    <!-- Table to display the products -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through each product in the products list -->
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.description}"></td> 
+                <td th:text="${product.category}"></td>
+                <td><img th:src="${product.imagelink}" alt="Product Image" width="100"></td>
+                <td>
+                    <!-- button to delete the product -->
+                    <form th:action="@{/admin/products/delete}" method="post">
+                        <input type="hidden" th:value="${product.id}" name="id"/>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Section to create a new product -->
+    <h2>Create New Product</h2>
+    <p>Note: category 1: electric guitars, category 2: acoustic guitars</p>
+    
+    <form th:action="@{/admin/products/addProduct}" th:method="post" th:object="${product}">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" id="price" name="price" required />
+        </div>
+        <div>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required />
+        </div>
+        <div>
+            <label for="category">Category:</label>
+            <input type="number" id="category" name="category" required />
+        </div>
+        <div>
+            <label for="imagelink">Image Link:</label>
+            <input type="text" id="imagelink" name="imagelink" required />
+        </div>
+        <div>
+            <button type="submit">Add Product</button>
+        </div>
+    </form>
+</body>
+</html>

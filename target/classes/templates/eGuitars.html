@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <!-- Link to the external CSS file for styling -->
+    <link rel="stylesheet" type="text/css" href="/css/eGuitars.css">
+</head>
+
+   
+<body>
+    <!-- Navigation bar at the top of the page 
+     with links to different pages-->
+    <div class="topnav">
+    <a href="/home">Home</a>
+    <a href="/aGuitars" >Acoustic Guitars</a>
+    <a href="/eGuitars">Electric Guitars</a>
+    <a href="/basket" class = "split">Basket</a>
+    <a href="/login" class = "split">login</a>
+    <a href="/register" class = "split">register</a>
+    <a href="/logout" class="split">logout</a>
+  </div>
+
+    <h1>Electric Guitars</h1>
+    <!-- Container for the products -->
+    <div class = "products-container">
+    <!-- Loop through each product in the products list -->
+    <div class="product" th:each="product : ${products}">
+        <!-- Form to view the product on its own page, 
+         this acts as a button that passes the product.ID.-->
+        <form th:action="@{/product}" method="post">
+            <input type="hidden" th:value="${product.id}" name="id"/>
+            <button type="submit" th:text="${product.name}"></button>
+        </form>
+        <h2 th:text="${product.name}"></h2>
+        <img th:src="${product.imagelink}" alt="Product Image" width="100">
+        <p>Price: £<span th:text="${product.price}"></span></p>
+        <!-- Form to add the product to the basket, 
+         this acts as a button that passes the product.ID and current page, 
+         so the user does not leave the page-->
+        <form th:action="@{/basket/add}" method="post">
+            <input type="hidden" th:value="${product.id}" name="productID"/>
+            <input type="hidden" th:value="'/eGuitars'" name="currentPage"/>
+            <button type="submit">Add to basket</button>
+        </form>
+        <p th:text="${product.description}"></p>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Users</title>
+    <link rel="stylesheet" type="text/css" href="/css/viewUsers.css">
+</head>
+<body>
+    <!-- Navigation bar at the top of the page 
+     with links to different pages-->
+    <div class="topnav">
+        <a href="/admin">Admin Home</a>
+        <a href="/admin/products">Products</a>
+        <a href="/admin/users" class="active">Users</a>
+        <a href="/home">User Home</a>
+        <a href="/logout" class="split">Logout</a>
+      </div>
+
+    <h2>Registered Users</h2>
+    <!-- Table to display the users -->
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.role}"></td>
+                <td>
+                    <!-- button to delete the user -->
+                    <form th:action="@{/admin/users/delete}" method="post">
+                        <input type="hidden" th:value="${user.username}" name="username"/>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product</title>
+    <link rel="stylesheet" type="text/css" href="/css/product.css">
+</head>
+<body>
+    <!-- Navigation bar at the top of the page -->
+    <div class="topnav">
+        <a href="/home">Home</a>
+        <a href="/aGuitars">Acoustic Guitars</a>
+        <a href="/eGuitars">Electric Guitars</a>
+        <a href="/basket" class="split">Basket</a>
+        <a href="/login" class="split">login</a>
+        <a href="/register" class="split">register</a>
+        <a href="/logout" class="split">logout</a>
+    </div>
+
+    <!-- displays the product name as the main heading -->
+    <h1 th:text="${product.name}">Product Name</h1>
+    
+    <!-- Container for the product details -->
+    <div class="product-container">
+    
+    <img th:src="${product.imagelink}" alt="Product Image" class="product-image">
+ 
+    <!-- Container for the product details -->
+    <div class="product-details">
+    <p>Price: £<span th:text="${product.price}">0.00</span></p>
+    <h2>Shipping Information</h2>
+    <p>We ship to everywhere in the UK, including the shetland isles and isle of man. All our products are sent with express shipping, you can expect them at your doorstep within 5 working days!</p>
+    <h3>Returns Policy</h3>
+    <p> We offer a 30 day returns policy. if you are dissatisfied with your product, it arrived damaged, or you simply don't want it anymore bring it back within 30 days for a no questions asked refund.</p>
+    <form th:action="@{/basket/add}" method="post">
+        <input type="hidden" th:value="${product.id}" name="productID"/>
+        <input type="hidden" th:value="'/product'" name="currentPage"/>
+        <button type="submit">Add to basket</button>
+    </form>
+    </div>
+    </div>
+    <div class="product-description">
+        <p th:text="${product.description}">Product Description</p>
+    </div>
+</body>
+</html>
