@@ -46,8 +46,7 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
-    steps:
-      # ...rest of your steps...
+
 
   deploy:
     runs-on: ubuntu-latest
