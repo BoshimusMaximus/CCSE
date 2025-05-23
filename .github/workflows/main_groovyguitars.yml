@@ -66,6 +66,6 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'groovyGuitars'
-          slot_name: 'Production'
+          slot_name: 'groovyguitars'
           package: '*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FF9E6B561ADE408093CDC83EF5B10212 }}
